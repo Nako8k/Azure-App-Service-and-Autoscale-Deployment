@@ -161,14 +161,13 @@ I then generated load against the app URL to trigger the scale-out rule, and mon
  
 - Autoscale requires at minimum the Standard tier — Free and Shared tiers don't expose this setting
 - Scale-out and scale-in rules are evaluated independently, so both need to be defined or the plan will only ever grow, never shrink
-- Deployment method choice (Zip Deploy vs GitHub Actions vs Local Git) affects how repeatable future deployments are — GitHub Actions is best for ongoing CI/CD, Zip Deploy is fastest for one-off testing
 - Run history under Autoscale settings is the best place to confirm rules are actually firing, rather than assuming from instance count alone
 
 ---
  
 ## Lessons Learned
  
-- <b>Plan the tier first</b> — I learned the pricing tier has to be decided before Autoscale is even an option, so it's worth choosing Standard or above from the start rather than upgrading later mid-lab.
+- <b>Plan the tier first</b> — I learned the pricing tier has to be decided before Autoscale is even an option, so it's worth choosing premium from the start rather than upgrading later mid-lab.
 - <b>Test before trusting</b> — Watching the Run history after generating load helped confirm the rules were actually evaluating correctly, rather than assuming the configuration was correct just because it saved without errors.
 
 
